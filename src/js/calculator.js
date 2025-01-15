@@ -31,7 +31,7 @@ const handleButtonClick = (e) => {
     }
 };
 
-// Function to handle calculation
+
 const calculate = () => {
     const prev = parseFloat(previousInput);
     const curr = parseFloat(currentInput);
@@ -55,25 +55,23 @@ const calculate = () => {
             return;
     }
 
-    currentInput = result.toString(); // Store result as the current input
-    operator = null; // Reset operator
-    previousInput = result.toString(); // Keep result for next calculation
-    updateDisplay(currentInput); // Display the result
+    currentInput = result.toString();
+    operator = null; 
+    previousInput = result.toString(); 
+    updateDisplay(currentInput);
 };
 
-// Event listeners for buttons
+
 buttons.forEach((button) => {
     button.addEventListener("click", handleButtonClick);
 });
 
-// Event listener for equals button
 equalsButton.addEventListener("click", () => {
     if (operator && currentInput !== "") {
         calculate();
     }
 });
 
-// Event listener for clear button
 clearButton.addEventListener("click", () => {
     currentInput = "";
     previousInput = "";
